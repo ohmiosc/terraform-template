@@ -5,7 +5,7 @@ variable "region" {
 }
 
 variable "product" {
-  default     = "product"
+  default     = "test"
   type        = string
   description = "The name of the product."
 }

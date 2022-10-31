@@ -48,6 +48,15 @@ resource "aws_iam_policy" "start-stop-policy" {
                 "ec2:DescribeInstanceStatus"
             ],
             "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:*"
+            ],
+            "Resource": [
+                "*"
+            ]
         }
     ]
 }
