@@ -1,7 +1,7 @@
 resource "aws_ssm_maintenance_window" "window" {
   name     = "maintenance-window-stop-Instance"
   description = "Demo hector"
-  #schedule = "cron( 00 01 ? * * *  )"
+  #schedule = "cron( 00 19 ? * * *  )"
   schedule = "rate(40 minutes)"
   duration = 1
   cutoff   = 0
@@ -15,8 +15,8 @@ resource "aws_ssm_maintenance_window_target" "target1" {
   resource_type = "INSTANCE"
 
   targets {
-    key    = "tag:Backup"
-    values = ["no"]
+    key    = "${var.filter_key_tag}"
+    values = ["${var.filter_value_tag}"]
   }
 }
 
@@ -28,7 +28,7 @@ resource "aws_ssm_maintenance_window_task" "example" {
   task_type       = "AUTOMATION"
   window_id       = aws_ssm_maintenance_window.window.id
   service_role_arn = aws_iam_role.ssm-maintenance-role.arn
-  count    = length(data.aws_instances.instances_id.ids)
+  #count    = length(data.aws_instances.instances_id.ids)
   targets {
     key    ="WindowTargetIds"
     values = [aws_ssm_maintenance_window_target.target1.id]
@@ -39,7 +39,7 @@ resource "aws_ssm_maintenance_window_task" "example" {
       parameter {
         name   = "InstanceId"
         #values = ["i-0affea130a595560c"]
-        values = ["${data.aws_instances.instances_id.ids[count.index]}"]
+        values = toset(data.aws_instances.instances_id.ids)
     }
   }
   }

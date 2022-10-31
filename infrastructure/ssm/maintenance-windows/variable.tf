@@ -28,3 +28,15 @@ variable "service" {
   type        = string
   description = "The envrionment"
 }
+###
+variable "filter_key_tag" {
+  default     = "tag:Product"
+  type        = string
+  description = "The key Tag"
+}
+
+variable "filter_value_tag" {
+  default     = "pagoefectivo"
+  type        = string
+  description = "The value Tag"
+}
