@@ -24,11 +24,10 @@ variable "environment_prefix" {
 }
 
 variable "service" {
-  default     = "ssm"
+  default     = "service"
   type        = string
   description = "The name service create"
 }
-
 ### CRITERIO DEL FILTRO X TAG ####
 variable "filter_key_tag" {
   default     = "tag:ssm"
