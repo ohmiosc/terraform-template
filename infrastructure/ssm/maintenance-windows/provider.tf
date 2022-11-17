@@ -7,7 +7,6 @@ provider "aws" {
       Squad       = "infraestructura"
       Project     = "stop-ssm"
       Creator       = "terraform - Hector"
-
     }
   }
 }
