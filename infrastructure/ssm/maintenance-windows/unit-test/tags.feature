@@ -12,3 +12,4 @@ Feature: Caracteristicas de la Prueba (Todos los recursos deben tener Etiquetas)
         | tags        | value              |
         | Environment | ^(prod\|pre\|dev)$ |
         | Project     | .+                 |
+        | Product     | .+                 |

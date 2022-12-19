@@ -6,7 +6,7 @@ provider "aws" {
       Environment = "dev"
       Squad       = "infraestructura"
       Project     = "stop-ssm"
-      Creator       = "terraform - Hector"
+      Creator     = "terraform - Hector"
     }
   }
 }
