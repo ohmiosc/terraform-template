@@ -5,13 +5,13 @@ resource "aws_lambda_function" "stop_lambda_function" {
   role             = aws_iam_role.lambda-infraestructure-role.arn
   runtime          = "python3.9"
   handler          = "lambda_function.lambda_handler"
-  timeout          = 10
+  timeout          = 120
 }
 resource "aws_cloudwatch_event_rule" "event-lambda" {
   name        = "${var.environment_prefix}-${var.product}-${var.service}-event"
   description = "Schedule lambda function"
   #schedule_expression   = "rate(60 minutes)"
-  schedule_expression = "cron(15 00 * * ? *)"
+  schedule_expression = "cron(10 05,08,17 * * ? *)"
 }
 resource "aws_cloudwatch_event_target" "lambda-function-target" {
   target_id = "lambda-function-target"

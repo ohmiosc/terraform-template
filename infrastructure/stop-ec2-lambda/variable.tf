@@ -1,30 +1,30 @@
 variable "region" {
-  default     = "eu-west-1"
+  default     = "us-east-1"
   type        = string
   description = "AWS Region"
 }
 
 variable "product" {
-  default     = "test"
+  default     = "tool"
   type        = string
   description = "The name of the product."
 }
 
 variable "environment" {
-  default     = "development"
+  default     = "cross"
   type        = string
   description = "The envrionment where it will be deployed"
 
 }
 
 variable "environment_prefix" {
-  default     = "dev"
+  default     = "cross"
   type        = string
   description = "The envrionment prefix where it will be deployed"
 }
 
 variable "service" {
-  default     = "service"
+  default     = "stop"
   type        = string
   description = "The name service create"
 }

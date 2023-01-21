@@ -1,5 +1,5 @@
 resource "aws_iam_role" "lambda-infraestructure-role" {
-  name               = "${var.environment_prefix}-${var.product}-stop-${var.service}-role"
+  name               = "${var.environment_prefix}-${var.product}-${var.service}-role"
   assume_role_policy = <<EOF
 {
     "Version": "2012-10-17",
