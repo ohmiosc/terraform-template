@@ -11,7 +11,7 @@ resource "aws_cloudwatch_event_rule" "event-lambda" {
   name        = "${var.environment_prefix}-${var.product}-${var.service}-event"
   description = "Schedule lambda function"
   #schedule_expression   = "rate(60 minutes)"
-  schedule_expression = "cron(10 05,08,17 * * ? *)"
+  schedule_expression = "cron(10 00,05,08 * * ? *)"
 }
 resource "aws_cloudwatch_event_target" "lambda-function-target" {
   target_id = "lambda-function-target"
